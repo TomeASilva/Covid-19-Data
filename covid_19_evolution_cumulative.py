@@ -60,6 +60,7 @@ for country, data in country_desease_evo_dict.items():
 fig.update_layout(yaxis_type="log",
                   title="Evolution of number of cases",
                   yaxis_title="log number of cases",
-                  xaxis_title="Number of days from the start of epidemy in each country")
+                  xaxis_title="Number of days from the start of epidemy in each country",
+                  template = "plotly_dark")
 
 plotly.offline.plot(fig, filename = 'Cumulative_Cases.html', auto_open=False)
