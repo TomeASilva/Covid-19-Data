@@ -60,6 +60,6 @@ fig.update_layout(yaxis_type="log",
                   title="Evolution of new cases",
                   yaxis_title="log number of new cases",
                   xaxis_title="Number of days from the start of epidemy in each country",
-                  template = "plotly_dark")
+                  )
     
 plotly.offline.plot(fig, filename = 'New_Cases.html', auto_open=False)
