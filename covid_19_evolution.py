@@ -6,6 +6,8 @@ import plotly.express as px
 from color_pallete import colors
 from default_country import traces_visible
 import plotly
+from datetime import date
+today = date.today().strftime("%B %d, %Y")
 
 
 df = pd.read_excel('https://www.ecdc.europa.eu/sites/default/files/documents/COVID-19-geographic-disbtribution-worldwide.xlsx')
@@ -57,7 +59,7 @@ for country, data in country_desease_evo_dict.items():
     color += 1
     
 fig.update_layout(yaxis_type="log",
-                  title="Evolution of new cases",
+                  title=f"Evolution of new cases - {today}",
                   yaxis_title="log number of new cases",
                   xaxis_title="Number of days from the start of epidemy in each country",
                   )
