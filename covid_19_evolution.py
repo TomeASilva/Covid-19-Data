@@ -27,10 +27,11 @@ for country in country_list:
     #Filter data so that we have a series concerned only when disease started to grow 
     #Consistently
     country_new_cases_rectified = []
-    
+    number_of_cases_treshold = 10
     for element in country_new_cases:
-        if element >= 10:
+        if element >= number_of_cases_treshold:
             country_new_cases_rectified.append(element)
+            number_of_cases_treshold = 0
 
     #compute the cumulative number of cases
     country_total_number_cases = []
@@ -45,12 +46,15 @@ for country in country_list:
     # Stack country information in array
     country_data = np.stack((country_total_number_cases, country_new_cases_rectified), axis=1)
     country_desease_evo_dict[country] = country_data
+    
+
+    
 
 
 fig = go.Figure()
 color = 0 
 for country, data in country_desease_evo_dict.items():
-    x = np.arange(1, data.shape[0])
+    x = np.arange(0 , data.shape[0] + 1)
     if country in traces_visible:
         visible = True
     else: visible = "legendonly" 
