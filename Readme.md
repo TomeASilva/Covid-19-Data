@@ -8,3 +8,5 @@ Hence, countries that have had the pandemic for a longer period of time will hav
 ## [URL Number of new cases][2]
 
 [2]: https://htmlpreview.github.io/?https://github.com/TomeASilva/Covid-19-Data/blob/master/New_Cases.html
+## [URL Cumulative number of deaths][3]
+[3]: https://htmlpreview.github.io/?https://github.com/TomeASilva/Covid-19-Data/blob/master/covid_19_deaths_cumulative.py
