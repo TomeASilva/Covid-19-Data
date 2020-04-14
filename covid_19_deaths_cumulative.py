@@ -22,29 +22,28 @@ for country in country_list:
     country_data = pivot_deaths[country].to_numpy()
     
     #remove nan data
-    country_new_cases = country_data[np.logical_not(np.isnan(country_data))]
+    country_deaths = country_data[np.logical_not(np.isnan(country_data))]
 
     #Filter data so that we have a series concerned only when disease started to grow 
     #Consistently
-    country_new_cases_rectified = []
-    number_of_cases_treshold = 10
-    for element in country_new_cases:
-        if element >= number_of_cases_treshold:
-            country_new_cases_rectified.append(element)
-            number_of_cases_treshold = 0
+    country_deaths_rectified = []
+    number_of_deaths_treshold = 2
+    for element in country_deaths:
+        if element >= number_of_deaths_treshold:
+            country_deaths_rectified.append(element)
+            number_of_deaths_treshold = 0
 
     #compute the cumulative number of cases
-    country_total_number_cases = []
+    country_total_number_deaths = []
     
-    for i in range(len(country_new_cases_rectified)):
-        
+    for i in range(len(country_deaths_rectified)):
         if i == 0:
-             country_total_number_cases.append(country_new_cases_rectified[i])
+            country_total_number_deaths.append(country_deaths_rectified[i])
         else:
-            country_total_number_cases.append(country_new_cases_rectified[i] + country_total_number_cases[i -1])
+            country_total_number_deaths.append(country_deaths_rectified[i] + country_total_number_deaths[i -1])
                 
     # Stack country information in array
-    country_data = np.stack((country_total_number_cases, country_new_cases_rectified), axis=1)
+    country_data = np.stack((country_total_number_deaths, country_deaths_rectified), axis=1)
     country_desease_evo_dict[country] = country_data
     
 
