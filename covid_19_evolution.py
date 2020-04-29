@@ -9,7 +9,6 @@ import plotly
 from datetime import date
 today = date.today().strftime("%B %d, %Y")
 
-
 df = pd.read_excel('https://www.ecdc.europa.eu/sites/default/files/documents/COVID-19-geographic-disbtribution-worldwide.xlsx')
 
 pivot_deaths = df.pivot_table(index="dateRep", columns="countriesAndTerritories", values="deaths")
@@ -68,4 +67,4 @@ fig.update_layout(yaxis_type="log",
                   xaxis_title="Number of days from the start of epidemy in each country",
                   )
     
-plotly.offline.plot(fig, filename = 'New_Cases.html', auto_open=False)
+plotly.offline.plot(fig, filename = 'New_Cases.html', auto_open=True)
