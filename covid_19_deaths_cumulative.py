@@ -67,4 +67,4 @@ fig.update_layout(yaxis_type="log",
                   xaxis_title="Number of days from the start of epidemy in each country",
                   )
     
-plotly.offline.plot(fig, filename = 'cumulative_death.html', auto_open=True)
+plotly.offline.plot(fig, filename = 'cumulative_death.html', auto_open=False)
